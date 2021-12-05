@@ -1,0 +1,8 @@
+*.o
+slstatus
+config.h
+#patch/
+.ccls-cache/
+*.orig
+*.rej
+slsatus.1
