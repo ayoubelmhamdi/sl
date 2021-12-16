@@ -13,7 +13,7 @@ int cpu_freq() {
       read_file("/sys/devices/system/cpu/cpu3/cpufreq/scaling_cur_freq");
 
   if (string1 && string1 && string2 && string3) {
-    sum = (atoi(string0) + atoi(string1) + atoi(string2) + atoi(string3)) /
+    sum = (atoi(string0) + atoi(string1) + atoi(string2) + atoi(string3)-4*500*1000) /
           (4 * 1000);
     free(string0);
     free(string1);
