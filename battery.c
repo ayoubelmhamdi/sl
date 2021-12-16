@@ -1,8 +1,10 @@
 #include "util.h"
 #include <stdio.h>
+#include <stdlib.h> // atoi
 #include <string.h>
 
 #define BATTRY_STATUS "/sys/class/power_supply/axp288_fuel_gauge/status"
+#define BATTRY_CAPACITY "/sys/class/power_supply/axp288_fuel_gauge/capacity"
 
 int battery_status() {
   char *bs = read_file(BATTRY_STATUS);
@@ -17,4 +19,10 @@ int battery_status() {
     return 0;
 
   return -1;
+}
+int battery_capacity() {
+  char *bs = read_file(BATTRY_CAPACITY);
+  bs[strcspn(bs, "\n")] = 0;
+
+  return atoi(bs);
 }
